@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>sample-extension</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>Sample Extension</description>
+    <name>sample-extension</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <retrofit.version>2.3.0</retrofit.version>
+        <okhttp3.version>3.14.7</okhttp3.version>
+        <fdk-extension.version>v0.0.40-SNAPSHOT</fdk-extension.version>
+        <fdk-client.version>v0.0.37-SNAPSHOT</fdk-client.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.gofynd</groupId>
+            <artifactId>fdk-client-java</artifactId>
+            <version>${fdk-client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.gofynd</groupId>
+            <artifactId>fdk-extension-java</artifactId>
+            <version>${fdk-extension.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.gofynd</groupId>
+                    <artifactId>fdk-client-java</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp-urlconnection</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+</project>

@@ -1,0 +1,10 @@
+info:
+  build:
+    artifact: '@project.artifactId@'
+    description: '@project.description@'
+    name: '@project.name@'
+    version: '@project.version@'
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    lazy-initialization: true
