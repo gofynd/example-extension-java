@@ -24,8 +24,8 @@ redis :
 
 ext :
   integration_id : '5db9141965e767e639fe4333'
-  api_key : '628db357622e131c981647cf' #extension api key
-  api_secret : '6ioujzvyd2X8QVd' #extension password
+  api_key : 'xxxx-xxxx-xxxxx' #Key needs to be replaced with extension api_key
+  api_secret : 'xxxx-xxxx-xxxxx' #Key needs to be replaced with extension api_secret
   scopes : 'company/saleschannel'
   base_url : 'https://ad23-103-197-222-199.in.ngrok.io'
   access_mode : 'offline'
