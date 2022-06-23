@@ -37,26 +37,11 @@ ext :
     event_map:
       -
         name: 'article/delete'
-        handler: articleHandler
+        handler: sampleHandler
         category: 'company'
         version: 1
       -
         name: 'product-size/create'
-        handler: productSizeCreateEvent
+        handler: sampleHandler
         category: 'company'
         version: 2
-      -
-        name: 'product-size/update'
-        handler: productSizeUpdateEvent
-        category: 'company'
-        version: 2
-      -
-        name: 'product-size/delete'
-        handler: productSizeDeleteEvent
-        category: 'company'
-        version: 2
-      -
-        name: 'integration/update'
-        handler: integrationHandler
-        category: 'company'
-        version: 1

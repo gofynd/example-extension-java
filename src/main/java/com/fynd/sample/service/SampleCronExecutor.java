@@ -12,21 +12,19 @@ public class SampleCronExecutor {
     @Autowired
     Environment env;
 
+    @Autowired
+    SampleTaskExecutorService sampleTaskExecutorService;
+
     @EventListener(ApplicationReadyEvent.class)
     public void onReady() {
+        //Will be available through FIK Consumers / Cron pods
         String jobType = env.getProperty("CRON_JOB");
         if (jobType != null) {
-            if (jobType.equalsIgnoreCase("cronJob1-name")) {
-                /**
-                 * code here for cronJob1
-                 */
-            } else if (jobType.equalsIgnoreCase("cronJob2-name")) {
-                /**
-                 * code here for cronJob2
-                 */
+            //cronJob1 should exactly match with the name provided in FIK file
+            if (jobType.equalsIgnoreCase("cronJob1")) {
+                sampleTaskExecutorService.sampleTask();
             }
             System.exit(0);
         }
     }
-
 }
