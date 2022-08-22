@@ -4,15 +4,26 @@ spring:
   main:
     allow-bean-definition-overriding: true
   application:
-    name: sample-project
-
+    name: example-extension-java
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://root:root@localhost:8889/credit_demo?useUnicode=true&allowPublicKeyRetrieval=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 springdoc:
   api-docs:
     path: /api-docs
 app:
   name: "@project.artifactId@"
   version: "@project.version@"
-
 redis :
   host : 'redis://127.0.0.1:6379'
   max-total: 1100
@@ -23,25 +34,9 @@ redis :
   tests: 3
 
 ext :
-  integration_id : 'xxx-xxx-xxxx' #Key needs to be replaced with extension integration_id
-  api_key : 'xxxx-xxxx-xxxxx' #Key needs to be replaced with extension api_key
-  api_secret : 'xxxx-xxxx-xxxxx' #Key needs to be replaced with extension api_secret
+  api_key : '62f23f60480f41005bd0d7a9' #Key needs to be replaced with extension api_key
+  api_secret : 'rDPyz9E5dks5cBY' #Key needs to be replaced with extension api_secret
   scopes : 'company/saleschannel'
-  base_url : 'https://ad23-103-197-222-199.in.ngrok.io'
+  base_url : 'https://aa26-171-76-83-29.in.ngrok.io'
   access_mode : 'offline'
-  cluster: "https://api.fyndx1.de"
-  webhook:
-    api_path: "/event/webhook"
-    notification_email: "aparnabalachandran@gofynd.com"
-    subscribed_saleschannel: 'specific'
-    event_map:
-      -
-        name: 'article/delete'
-        handler: sampleHandler
-        category: 'company'
-        version: 1
-      -
-        name: 'product-size/create'
-        handler: sampleHandler
-        category: 'company'
-        version: 2
+  cluster: "https://api.jiox0.de"

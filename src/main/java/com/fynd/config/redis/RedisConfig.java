@@ -1,4 +1,4 @@
-package com.fynd.sample.common;
+package com.fynd.config.redis;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,14 +14,14 @@ import java.net.URISyntaxException;
 import java.time.Duration;
 
 @Component
-public class RedisService {
+public class RedisConfig {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    RedisProperties redisProperties;
+    private RedisProperties redisProperties;
 
-    JedisPool jedisPool;
+    private JedisPool jedisPool;
 
     @Bean(name = "redis-pool")
     public JedisPool getJedis() throws URISyntaxException {
@@ -34,9 +34,9 @@ public class RedisService {
         poolConfig.setTestOnReturn(true);
         poolConfig.setTestWhileIdle(true);
         poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(redisProperties.getIdleTime())
-                                                         .toMillis());
+            .toMillis());
         poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(redisProperties.getEviction())
-                                                            .toMillis());
+            .toMillis());
         poolConfig.setNumTestsPerEvictionRun(redisProperties.getTests());
         poolConfig.setBlockWhenExhausted(true);
         URI redisUri = new URI(redisProperties.getHost());
@@ -47,9 +47,9 @@ public class RedisService {
     @PreDestroy
     public void destroy() {
         logger.info("Closing the jedis pool connection");
-        if (jedisPool != null)
+        if (jedisPool != null) {
             jedisPool.close();
+        }
         jedisPool = null;
     }
-
 }
