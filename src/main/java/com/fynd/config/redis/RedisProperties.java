@@ -1,14 +1,12 @@
-package com.fynd.sample.common;
+package com.fynd.config.redis;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+@Data
 @Component
 @ConfigurationProperties(prefix = "redis")
-@Getter
-@Setter
 public class RedisProperties {
 
     private String host;
