@@ -13,17 +13,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.0.RELEASE</version>
+        <version>3.0.1</version>
         <relativePath />
     </parent>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <retrofit.version>2.3.0</retrofit.version>
         <okhttp3.version>3.14.7</okhttp3.version>
-        <fdk-extension.version>v0.0.40-SNAPSHOT</fdk-extension.version>
-        <fdk-client.version>v0.0.37-SNAPSHOT</fdk-client.version>
+        <fdk-extension.version>0.0.49-SNAPSHOT</fdk-extension.version>
+        <fdk-client.version>v0.0.61-SNAPSHOT</fdk-client.version>
+<!--        <fdk-client.version>v0.0.60-SNAPSHOT</fdk-client.version>-->
+<!--        <fdk-client.version>1.0.0-test-gen-SNAPSHOT</fdk-client.version>-->
     </properties>
 
     <dependencies>

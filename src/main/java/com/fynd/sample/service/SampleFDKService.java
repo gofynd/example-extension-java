@@ -1,15 +1,16 @@
 package com.fynd.sample.service;
 
 import com.fynd.extension.service.ExtensionService;
+import com.sdk.common.model.FDKException;
+import com.sdk.common.model.FDKServerResponseError;
 import com.sdk.platform.PlatformClient;
 import com.sdk.platform.PlatformModels;
+import java.io.IOException;
+import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 @Service
 public class SampleFDKService {
@@ -19,7 +20,8 @@ public class SampleFDKService {
     @Autowired
     ExtensionService extensionService;
 
-    public void sampleFunction(String companyId) throws IOException {
+    public void sampleFunction(String companyId)
+            throws IOException, FDKException, FDKServerResponseError {
         PlatformClient platformClient = extensionService.getPlatformClient(companyId);
         /**
          * Code to call the specific Fynd platform API using Platform Client
