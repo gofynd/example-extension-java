@@ -32,7 +32,7 @@ ext :
   cluster: "https://api.fyndx1.de"
   webhook:
     api_path: "/event/webhook"
-    notification_email: "aparnabalachandran@gofynd.com"
+    notification_email: "xyz@gmail.com"
     subscribed_saleschannel: 'specific'
     event_map:
       -
