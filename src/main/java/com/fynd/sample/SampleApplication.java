@@ -11,17 +11,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.DependsOn;
-import org.springframework.core.Ordered;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 import redis.clients.jedis.JedisPool;
-
-import java.util.Collections;
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -41,13 +34,16 @@ public class SampleApplication {
 
     ExtensionCallback callbacks = new ExtensionCallback((fdkSession) -> {
         logger.info("In auth callback");
-        return extensionProperties.getBase_url() + "/company/" + fdkSession.getCompany_id();
+        return extensionProperties.getBaseUrl() + "/company/" + "61";
     }, (context) -> {
         logger.info("In install callback");
-        return extensionProperties.getBase_url();
+        return extensionProperties.getBaseUrl();
     }, (fdkSession) -> {
         logger.info("In uninstall callback");
-        return extensionProperties.getBase_url();
+        return extensionProperties.getBaseUrl();
+    }, (fdkSession) -> {
+        logger.info("In auto-install callback");
+        return extensionProperties.getBaseUrl();
     });
 
     public static void main(String[] args) {

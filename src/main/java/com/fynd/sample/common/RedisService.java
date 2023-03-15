@@ -40,7 +40,7 @@ public class RedisService {
         poolConfig.setNumTestsPerEvictionRun(redisProperties.getTests());
         poolConfig.setBlockWhenExhausted(true);
         URI redisUri = new URI(redisProperties.getHost());
-        jedisPool = new JedisPool(poolConfig, redisUri.getHost());
+        jedisPool = new JedisPool(poolConfig, redisProperties.getHost());
         return jedisPool;
     }
 
