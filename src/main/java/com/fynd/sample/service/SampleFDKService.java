@@ -4,14 +4,14 @@ import com.fynd.extension.service.ExtensionService;
 import com.sdk.common.model.FDKException;
 import com.sdk.common.model.FDKServerResponseError;
 import com.sdk.platform.PlatformClient;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import com.sdk.platform.catalog.CatalogPlatformModels;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 @Service
 public class SampleFDKService {
@@ -32,6 +32,6 @@ public class SampleFDKService {
                 new ArrayList<>(), new ArrayList<>(), "", new ArrayList<>(),
                 1, 10);
         log.info("Items received from Catalog API : {}", productListingResponse.getItems()
-                                                                               .size());
+                .size());
     }
 }

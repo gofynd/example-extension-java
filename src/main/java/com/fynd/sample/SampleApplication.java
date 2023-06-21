@@ -3,6 +3,7 @@ package com.fynd.sample;
 import com.fynd.extension.model.Extension;
 import com.fynd.extension.model.ExtensionCallback;
 import com.fynd.extension.model.ExtensionProperties;
+import com.fynd.extension.session.Session;
 import com.fynd.extension.storage.RedisStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,9 +33,10 @@ public class SampleApplication {
     @Qualifier("redis-pool")
     JedisPool jedis;
 
-    ExtensionCallback callbacks = new ExtensionCallback((fdkSession) -> {
+    ExtensionCallback callbacks = new ExtensionCallback((request) -> {
+        Session fdkSession = (Session) request.getAttribute("session");
         logger.info("In auth callback");
-        return extensionProperties.getBaseUrl() + "/company/" + "61";
+        return extensionProperties.getBaseUrl() + "/company/" + fdkSession.getCompanyId();
     }, (context) -> {
         logger.info("In install callback");
         return extensionProperties.getBaseUrl();
@@ -56,6 +58,6 @@ public class SampleApplication {
     public com.fynd.extension.model.Extension getExtension() {
         Extension extension = new Extension();
         return extension.initialize(extensionProperties, new RedisStorage(jedis, REDIS_KEY),
-                                    callbacks);
+                callbacks);
     }
 }
