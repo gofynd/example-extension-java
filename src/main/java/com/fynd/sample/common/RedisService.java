@@ -9,7 +9,6 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import javax.annotation.PreDestroy;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
@@ -34,12 +33,11 @@ public class RedisService {
         poolConfig.setTestOnReturn(true);
         poolConfig.setTestWhileIdle(true);
         poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(redisProperties.getIdleTime())
-                                                         .toMillis());
+                .toMillis());
         poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(redisProperties.getEviction())
-                                                            .toMillis());
+                .toMillis());
         poolConfig.setNumTestsPerEvictionRun(redisProperties.getTests());
         poolConfig.setBlockWhenExhausted(true);
-        URI redisUri = new URI(redisProperties.getHost());
         jedisPool = new JedisPool(poolConfig, redisProperties.getHost());
         return jedisPool;
     }

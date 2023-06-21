@@ -14,7 +14,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.1</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <properties>
@@ -22,8 +22,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <retrofit.version>2.3.0</retrofit.version>
         <okhttp3.version>3.14.7</okhttp3.version>
-        <fdk-extension.version>0.0.49-SNAPSHOT</fdk-extension.version>
-        <fdk-client.version>v1.0.2-beta</fdk-client.version>
+        <fdk-extension.version>0.0.49</fdk-extension.version>
+        <fdk-client.version>v1.0.6</fdk-client.version>
     </properties>
 
     <dependencies>
